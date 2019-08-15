@@ -1,7 +1,7 @@
 export default interface User {
-    id: String;
-    name: String;
-    email: String;
+    id: string;
+    name: string;
+    email: string;
     dateOfBirthday: Date;
-    password: String;
+    password: string;
 }

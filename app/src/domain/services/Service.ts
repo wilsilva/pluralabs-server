@@ -1,10 +1,9 @@
-import IRepository from "../repositories/IRepository";
+import Repository from '../repositories/Repository';
 
 export default abstract class Service<Entity> {
-    
-    protected repository: IRepository<Entity>;
-    
-    constructor(repository: IRepository<Entity>){
-        this.repository = repository;
+    protected repository: Repository<Entity>;
+
+    constructor(repository: Repository<Entity>) {
+      this.repository = repository;
     }
 }
