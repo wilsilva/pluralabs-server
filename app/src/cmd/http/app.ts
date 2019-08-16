@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import express from 'express';
-import * as middlewares from './middlewares';
+import bodyParser from 'body-parser';
+import MiddlewareApplication from './middlewares/MiddlewareApplication';
 import routes from './routes';
 
 export default class App {
@@ -7,12 +9,17 @@ export default class App {
 
     constructor() {
       this.express = express();
-      this.middlewares();
-      this.route();
     }
 
     private middlewares(): void {
-      Object.values(middlewares).forEach((middleware) => (
+      const urlEnconded = bodyParser.urlencoded({ extended: false });
+      const jsonParser = bodyParser.json();
+      const middlewares: Array<any> = (new MiddlewareApplication()).handle();
+
+      this.express.use(urlEnconded);
+      this.express.use(jsonParser);
+
+      middlewares.forEach((middleware) => (
         this.express.use(middleware)
       ));
     }
@@ -22,6 +29,8 @@ export default class App {
     }
 
     run(port = 3000): void {
+      this.middlewares();
+      this.route();
       this.express.listen(port, () => {
         // eslint-disable-next-line no-console
         console.log('Running application in port', port, '...');
