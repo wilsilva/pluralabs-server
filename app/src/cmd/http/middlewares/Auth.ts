@@ -28,7 +28,7 @@ export default abstract class Auth implements Middleware {
     const user = await repository.findById(payload.id);
 
     if (user) {
-      done(null, { id: user.id });
+      done(null, { id: user._id });
     } else {
       done(new Error('User not found'), null);
     }

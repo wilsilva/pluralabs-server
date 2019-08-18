@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "nodemon ./app/src/cmd/http",
+    "debug": "nodemon --config nodemon-debug.json ./app/src/cmd/http",
     "prod": "yarn build; node ./build/cmd/http",
     "test": "jest --detectOpenHandles"
   },
@@ -47,6 +48,7 @@
     "jest": "^24.8.0",
     "nodemon": "^1.19.1",
     "ts-node": "^8.3.0",
+    "tsconfig-paths": "^3.8.0",
     "typescript": "^3.5.3"
   }
 }

@@ -28,9 +28,12 @@ export default class App {
       this.express.use('/', routes);
     }
 
-    run(port = 3000): void {
+    bootstrap(): void {
       this.middlewares();
       this.route();
+    }
+
+    run(port = 3000): void {
       this.express.listen(port, () => {
         // eslint-disable-next-line no-console
         console.log('Running application in port', port, '...');

@@ -1,7 +1,9 @@
-import { MongoClient, Db, Collection } from 'mongodb';
-import Repository from '../../../domain/repositories/Repository';
+import {
+  MongoClient, Db, Collection, ObjectId,
+} from 'mongodb';
+import Database from '../Database';
 
-export default class Mongo<Entity> implements Repository<Entity> {
+export default class Mongo<Entity> implements Database<Entity> {
     private host: string;
 
     private database: string
@@ -50,9 +52,13 @@ export default class Mongo<Entity> implements Repository<Entity> {
 
     async findById(identify: string): Promise<Entity|null> {
       await this.connect();
-      const data = await this.collection.findOne<Entity>({ id: identify });
+      const data = await this.collection.findOne<Entity>({ _id: new ObjectId(identify) });
       await this.disconect();
       return data;
+    }
+
+    async findByQuery(): Promise<Entity[]> {
+      throw new Error('Method not implemented.');
     }
 
     async insert(data: Entity): Promise<Entity|null> {
