@@ -1,6 +1,5 @@
-import RepositoryApplication from './RepositoryApplication';
-import User from '../entities/User';
-import Mongo from '../../infra/database/mongodb/Mongo';
+import RepositoryApplication from './repository-application';
+import User from '../entities/user';
 
 export default class UserRepository extends RepositoryApplication<User> {
   constructor() {

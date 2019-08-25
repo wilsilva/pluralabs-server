@@ -1,7 +1,7 @@
 import {
   MongoClient, Db, Collection, ObjectId,
 } from 'mongodb';
-import Database from '../Database';
+import Database from '../database';
 import Query from '../Query';
 
 export default class Mongo<Entity> implements Database<Entity> {

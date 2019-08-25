@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import InitializeAuthenticator from './InitializeAuthenticator';
-import Middleware from './Middleware';
+import InitializeAuthenticator from './initialize-authenticator';
+import Middleware from './middleware';
 
 export default class MiddlewareApplication implements Middleware {
   private middlewares: Array<Middleware>;
