@@ -1,4 +1,4 @@
-import Repository from '../repositories/Repository';
+import Repository from '../repositories/repository';
 
 export default abstract class Service<Entity> {
     protected repository: Repository<Entity>;

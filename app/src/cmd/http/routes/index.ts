@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import users from './users';
-import AuthenticateUser from '../middlewares/AuthenticateUser';
+import AuthenticateUser from '../middlewares/authenticate-user';
 
 const routes = Router();
 

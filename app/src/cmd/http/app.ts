@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import express from 'express';
 import bodyParser from 'body-parser';
-import MiddlewareApplication from './middlewares/MiddlewareApplication';
+import MiddlewareApplication from './middlewares/middleware-application';
 import routes from './routes';
 
 export default class App {

@@ -1,4 +1,4 @@
-import Exception from './Exception';
+import Exception from './exception';
 
 export default class HttpNotFoundException extends Exception {
   constructor(message: string) {
