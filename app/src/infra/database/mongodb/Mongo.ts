@@ -64,6 +64,19 @@ export default class Mongo<Entity> implements Database<Entity> {
       return data;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async findByAggregationsQueries(queries: any[], aggregates: any[]): Promise<Entity[]> {
+      const queriesTransformed = queries.map((query) => ({ $match: query }));
+      const aggregatesTransformed = aggregates.map((aggregate) => ({ $lookup: aggregate }));
+      const data = await this.collection
+        .aggregate<Entity>([
+          ...queriesTransformed,
+          ...aggregatesTransformed,
+        ])
+        .toArray();
+      return data;
+    }
+
     async insert(data: Entity): Promise<Entity|null> {
       await this.connect();
       const result = await this.collection.insertOne(data);
