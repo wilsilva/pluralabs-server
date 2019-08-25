@@ -12,13 +12,28 @@ export default abstract class RepositoryApplication<Entity> implements Repositor
     this.dao = new Mongo<Entity>(this.collectionName);
   }
 
-  abstract async find(): Promise<Entity[]>;
+  async find(): Promise<Entity[]> {
+    const entities = await this.dao.find();
+    return entities;
+  }
 
-  abstract async findById(identify: string): Promise<Entity|null>;
+  async findById(identify: string): Promise<Entity|null> {
+    const entity = await this.dao.findById(identify);
+    return entity;
+  }
 
-  abstract async insert(data: Entity): Promise<Entity|null>;
+  async insert(data: Entity): Promise<Entity|null> {
+    const entity = await this.dao.insert(data);
+    return entity;
+  }
 
-  abstract async update(identify: string, data: Entity): Promise<Entity|null>;
+  async update(identify: string, data: Entity): Promise<Entity|null> {
+    const entity = await this.dao.update(identify, data);
+    return entity;
+  }
 
-  abstract async delete(identify: string): Promise<boolean>;
+  async delete(identify: string): Promise<boolean> {
+    const isDeleted = await this.dao.delete(identify);
+    return isDeleted;
+  }
 }

@@ -6,7 +6,7 @@ export default interface Course {
   category: string;
   tags: string[];
   description: string;
-  create_at: string;
   materials: string[]|Array<Material>;
   author: Teacher|string;
+  create_at: string;
 }

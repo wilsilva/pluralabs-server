@@ -2,7 +2,6 @@ import {
   MongoClient, Db, Collection, ObjectId,
 } from 'mongodb';
 import Database from '../database';
-import Query from '../Query';
 
 export default class Mongo<Entity> implements Database<Entity> {
     private host: string;
@@ -59,9 +58,9 @@ export default class Mongo<Entity> implements Database<Entity> {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    async findByQuery(query: any): Promise<Entity[]> {
+    async findByQuery(query: any, sort: any = null): Promise<Entity[]> {
       await this.connect();
-      const data = await this.collection.find<Entity>(query).toArray();
+      const data = await this.collection.find<Entity>(query).sort(sort).toArray();
       return data;
     }
 

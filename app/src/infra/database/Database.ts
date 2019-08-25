@@ -2,5 +2,5 @@
 import Repository from '../../domain/repositories/repository';
 
 export default interface Database<Entity> extends Repository<Entity> {
-  findByQuery(query: any): Promise<Array<Entity>>;
+  findByQuery(query: any, sort?: any): Promise<Array<Entity>>;
 }
