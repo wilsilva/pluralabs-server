@@ -2,6 +2,7 @@ import {
   MongoClient, Db, Collection, ObjectId,
 } from 'mongodb';
 import Database from '../Database';
+import Query from '../Query';
 
 export default class Mongo<Entity> implements Database<Entity> {
     private host: string;
@@ -57,8 +58,11 @@ export default class Mongo<Entity> implements Database<Entity> {
       return data;
     }
 
-    async findByQuery(): Promise<Entity[]> {
-      throw new Error('Method not implemented.');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async findByQuery(query: any): Promise<Entity[]> {
+      await this.connect();
+      const data = await this.collection.find<Entity>(query).toArray();
+      return data;
     }
 
     async insert(data: Entity): Promise<Entity|null> {
