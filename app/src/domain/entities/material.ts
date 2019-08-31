@@ -9,11 +9,11 @@ export enum MaterialType {
 }
 export default interface Material {
   filename: string;
-  url_file: string;
+  urlFile: string;
   type: MaterialType;
   description?: string;
   category?: string;
   tags?: string[];
-  created_at: string;
+  createdAt: string;
   author: Teacher|string;
 }

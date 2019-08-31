@@ -1,15 +1,18 @@
 import Repository from './repository';
-import Database from '../../infra/database/database';
 import Mongo from '../../infra/database/mongodb';
 
 export default abstract class RepositoryApplication<Entity> implements Repository<Entity> {
-  protected collectionName: string;
+  private _collectionName: string;
 
-  protected dao: Database<Entity>;
+  protected dao: Mongo<Entity>;
 
   constructor(collectionName: string) {
-    this.collectionName = collectionName;
+    this._collectionName = collectionName;
     this.dao = new Mongo<Entity>(this.collectionName);
+  }
+
+  get collectionName(): string {
+    return this._collectionName;
   }
 
   async find(): Promise<Entity[]> {

@@ -8,5 +8,5 @@ export default interface Course {
   description: string;
   materials: string[]|Array<Material>;
   author: Teacher|string;
-  create_at: string;
+  createAt: string;
 }
