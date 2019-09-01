@@ -1,6 +1,6 @@
 import RepositoryApplication from './repository-application';
-import Course from '../entities/Course';
-import Teacher from '../entities/Teacher';
+import Course from '../../../domain/entities/Course';
+import Teacher from '../../../domain/entities/Teacher';
 import TeacherRepository from './teacher-respository';
 
 export default class CourseRepository extends RepositoryApplication<Course> {

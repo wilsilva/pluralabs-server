@@ -1,5 +1,5 @@
 import Repository from './repository';
-import Mongo from '../../infra/database/mongodb';
+import Mongo from '../mongodb';
 
 export default abstract class RepositoryApplication<Entity> implements Repository<Entity> {
   private _collectionName: string;

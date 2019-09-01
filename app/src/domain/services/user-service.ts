@@ -1,4 +1,4 @@
-import UserRepository from '../repositories/user-repository';
+import UserRepository from '../../infra/database/repositories/user-repository';
 import User from '../entities/user';
 import Service from './service';
 import HttpNotFoundException from '../../cmd/http/exceptions/http-not-found-exception';
