@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import UserService from '../../../domain/services/user-service';
-import Exception from '../exceptions/exception';
+import Exception from '../exceptions/Exception';
 
 export default class UserController {
   private service: UserService;
