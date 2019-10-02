@@ -1,6 +1,6 @@
-import Repository from './repository';
-import Database from '../../infra/database/database';
-import Mongo from '../../infra/database/mongodb/mongo';
+import Repository from './Repository';
+import Database from '../../infra/database/Database';
+import Mongo from '../../infra/database/mongodb/Mongo';
 
 export default abstract class RepositoryApplication<Entity> implements Repository<Entity> {
   protected collectionName: string;

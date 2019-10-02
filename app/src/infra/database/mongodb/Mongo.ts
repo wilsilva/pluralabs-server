@@ -1,8 +1,7 @@
 import {
   MongoClient, Db, Collection, ObjectId,
 } from 'mongodb';
-import Database from '../database';
-import Query from '../Query';
+import Database from '../Database';
 
 export default class Mongo<Entity> implements Database<Entity> {
     private host: string;

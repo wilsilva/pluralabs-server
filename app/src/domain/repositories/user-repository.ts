@@ -1,5 +1,5 @@
 import RepositoryApplication from './repository-application';
-import User from '../entities/user';
+import User from '../entities/User';
 
 export default class UserRepository extends RepositoryApplication<User> {
   constructor() {

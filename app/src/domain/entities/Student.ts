@@ -1,4 +1,4 @@
-import User from './user';
+import User from './User';
 import Course from './Course';
 import Material from './Material';
 

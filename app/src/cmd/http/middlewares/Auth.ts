@@ -4,7 +4,7 @@ import {
   ExtractJwt, Strategy, StrategyOptions, VerifiedCallback,
 } from 'passport-jwt';
 import UserRepository from '../../../domain/repositories/user-repository';
-import Middleware from './middleware';
+import Middleware from './Middleware';
 
 export default abstract class Auth implements Middleware {
   private authParams: StrategyOptions;
