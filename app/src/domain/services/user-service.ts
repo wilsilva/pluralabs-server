@@ -1,6 +1,6 @@
-import UserRepository from '../../infra/database/repositories/user-repository';
-import User from '../entities/user';
-import Service from './service';
+import UserRepository from '../repositories/user-repository';
+import User from '../entities/User';
+import Service from './Service';
 import HttpNotFoundException from '../../cmd/http/exceptions/http-not-found-exception';
 
 export default class UserService extends Service<User> {
