@@ -4,17 +4,17 @@
 
 Download the projects dependencies
 ```
-    npm install
+    yarn install
 ```
 
-Build the project
+Build the project in production
 ```
-    tsc
+    yarn run prod
 ```
 
-To start project 
+For running application local to development environment in the project directory, you can run the commands:
 ```
-    nodemon ./app/src/cmd/http
+    yarn run dev
 ```
 
 Obs.: Don't forget about the .env file!
